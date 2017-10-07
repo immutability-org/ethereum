@@ -2,20 +2,16 @@
 #
 FROM vertigo/go-ethereum:v1.6.7-all
 
-MAINTAINER Andre Fernandes <andre@vertigo.com.br>
+MAINTAINER Jeff Ploughman <j.j.ploughman@gmail.com>
 
-ENV GEN_NONCE="0xeddeadbabeeddead" \
+ENV GEN_NONCE="0xeddeadbadeeddead" \
     DATA_DIR="/root/.ethereum" \
     CHAIN_TYPE="private" \
     RUN_BOOTNODE=false \
-    GEN_CHAIN_ID=1981 \
+    GEN_CHAIN_ID=1977 \
     BOOTNODE_URL=""
 
 WORKDIR /opt
-
-# herdados de ethereum/client-go
-# EXPOSE 30303
-# EXPOSE 8545
 
 # bootnode port
 EXPOSE 30301

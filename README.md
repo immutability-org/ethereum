@@ -1,7 +1,7 @@
 Ethereum playground
 ===========
 
-This image is derived from  "ethereum/go-client", but slightly modified to make it simpler to run a private Ethereum network. This image is published on Docker Hub as "vertigo/ethereum".
+This image is derived from  "ethereum/go-client", but slightly modified to make it simpler to run a private Ethereum network. This image is published on Docker Hub as "immutability/ethereum".
 
 A few scripts in this project also simplify playing with this image.
 
@@ -13,8 +13,8 @@ This image allows the user to define environment variables that will reflect on 
 
 Those variables are:
 
-* GEN_NONCE: any value your nodes agree upon, the default is "0xeddeadbabeeddead"
-* NET_ID: any integer value your nodes agree upon, the default is 1981
+* GEN_NONCE: any value your nodes agree upon, the default is "0xeddeadbadeeddead"
+* NET_ID: any integer value your nodes agree upon, the default is 1977
 
 The GEN_NONCE variable is used during the start script to create the "genesis.json" used when initializing the blockchain. Similarly, the NET_ID variable defines the "network_id" of the network. All members of the private network must have the same genesis block and network_id, so all you'll have to do is run the containers with the same "-e" arguments for these variables (the provided scripts do it).
 
@@ -55,7 +55,7 @@ Note: if ran without arguments the scripts `runnode.sh` and `runminer.sh` assume
 
 ## Your first node
 
-The script `runnode.sh` runs the first node in your private Ethereum network (a container named "ethereum-node1"). It is important to notice that it looks for and connects to the bootnode, but since it is alone in the world it won't find any peer (yet) - the bootnode is a dumb node that doesn't count as a peer. 
+The script `runnode.sh` runs the first node in your private Ethereum network (a container named "ethereum-node1"). It is important to notice that it looks for and connects to the bootnode, but since it is alone in the world it won't find any peer (yet) - the bootnode is a dumb node that doesn't count as a peer.
 
 ```sh
 ./runnode.sh
@@ -77,7 +77,7 @@ Self-discovery can take a few seconds, but it is easy to check it with the scrip
 ./showpeers.sh
 ```
 
-An optional argument can specify another node container to be checked: 
+An optional argument can specify another node container to be checked:
 
 ```sh
 ./showpeers.sh ethereum-node2
@@ -102,6 +102,3 @@ Mining can take quite a long time to run for the first time. Onde again, to chec
 ```sh
 docker logs -f ethereum-miner1
 ```
-
-
-
