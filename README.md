@@ -1,5 +1,5 @@
 Ethereum playground
-==========
+===========
 
 This image is derived from  "ethereum/go-client", but slightly modified to make it simpler to run a private Ethereum network. This image is published on Docker Hub as "vertigo/ethereum".
 
