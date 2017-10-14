@@ -1,6 +1,6 @@
 # Ethereum playground for private networks
 #
-FROM ethereum/client-go
+FROM immutability/go-ethereum
 
 MAINTAINER Jeff Ploughman <j.j.ploughman@gmail.com>
 
