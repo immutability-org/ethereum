@@ -1,6 +1,6 @@
 # Ethereum playground for private networks
 #
-FROM vertigo/go-ethereum:v1.6.7-all
+FROM ethereum/client-go
 
 MAINTAINER Jeff Ploughman <j.j.ploughman@gmail.com>
 
@@ -21,4 +21,3 @@ ADD src/* /opt/
 RUN chmod +x /opt/*.sh
 
 ENTRYPOINT ["/opt/startgeth.sh"]
-
