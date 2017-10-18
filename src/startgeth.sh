@@ -34,6 +34,7 @@ if [ "$CHAIN_TYPE" == "private" ]; then
 #  [[ ! -z $NET_ID ]] && GEN_ARGS="$GEN_ARGS --networkid=$NET_ID"
 #  [[ ! -z $MY_IP ]] && GEN_ARGS="$GEN_ARGS --nat=extip:$MY_IP"
   GEN_ARGS="$GEN_ARGS --nat=any"
+  GEN_ARGS="$GEN_ARGS --verbosity=6"
   [[ ! -z $BOOTNODE_URL ]] && GEN_ARGS="--bootnodes=$BOOTNODE_URL $GEN_ARGS"
 fi
 
@@ -51,6 +52,6 @@ if [ "$RUN_BOOTNODE" == "true" ]; then
 #    exec /usr/local/bin/bootnode --nodekey="$KEY_FILE" "$@"
 fi
 
-echo "Running geth with arguments $GEN_ARGS $@"
+echo "Running geth with arguments $GEN_ARGS $@" > /var/log/startgeth.log
 exec /usr/local/bin/geth $GEN_ARGS "$@"
 
