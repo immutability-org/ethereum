@@ -14,10 +14,11 @@ ENV GEN_NONCE="0xeddeadbadeeddead" \
 WORKDIR /opt
 
 ENV GOPATH /opt/go:$GOPATH
+ENV PATH /opt/go/bin:$PATH:
+WORKDIR /opt/go/src/github.com/ethereum/go-ethereum
 
 # This is a development build so we install delve. This means we can't use this for production
 RUN go get github.com/derekparker/delve/cmd/dlv
-ENV PATH /opt/go/bin:/opt/go/src/local/go-ethereum/build/bin:$PATH
 
 # bootnode port
 EXPOSE 30301
