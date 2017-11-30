@@ -1,6 +1,6 @@
 # Ethereum playground for private networks
 #
-FROM immutability/go-ethereum
+FROM immutability/go-ethereum:latest
 
 MAINTAINER Jeff Ploughman <j.j.ploughman@gmail.com>
 
@@ -13,12 +13,7 @@ ENV GEN_NONCE="0xeddeadbadeeddead" \
 
 WORKDIR /opt
 
-ENV GOPATH /opt/go:$GOPATH
-ENV PATH /opt/go/bin:$PATH:
-WORKDIR /opt/go/src/github.com/ethereum/go-ethereum
-
 # This is a development build so we install delve. This means we can't use this for production
-RUN go get github.com/derekparker/delve/cmd/dlv
 
 # bootnode port
 EXPOSE 30301
