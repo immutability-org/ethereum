@@ -14,9 +14,6 @@ ENV GEN_NONCE="0xeddeadbadeeddead" \
 
 WORKDIR /opt
 
-# This is a development build so we install delve. This means we can't use this for production
-
-# bootnode port
 EXPOSE 30301
 EXPOSE 30301/udp
 

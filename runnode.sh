@@ -19,10 +19,12 @@ UDP_PORTMAP=
 [[ ! -z $RPC_PORT ]] && RPC_ARG='--rpc --rpcaddr=0.0.0.0 --rpcapi=db,eth,net,web3,personal --rpccorsdomain "*"' && RPC_PORTMAP="-p $RPC_PORT:8545"
 [[ ! -z $UDP_PORT ]] && UDP_PORTMAP="-p $UDP_PORT:30303 -p $UDP_PORT:30303/udp"
 BOOTNODE_URL=${BOOTNODE_URL:-$(./getbootnodeurl.sh)}
-echo "Running new container $CONTAINER_NAME..."
+echo "Starting $CONTAINER_NAME"
 docker run -d --name $CONTAINER_NAME \
     -v $DATA_ROOT/.ether-$NODE_NAME:/root \
     --network ethereum \
+    --network-alias $CONTAINER_NAME \
+    --label ethereum=$CONTAINER_NAME \
     -e "BOOTNODE_URL=$BOOTNODE_URL" \
     $NET_ARG $GEN_ARG $RPC_PORTMAP $UDP_PORTMAP \
     $IMGNAME:$IMGVERSION $RPC_ARG --identity $NODE_NAME --cache=512 --verbosity=4 --maxpeers=3 ${@:2}
