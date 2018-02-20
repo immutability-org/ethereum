@@ -1,7 +1,7 @@
 # Ethereum playground for private networks
 # All ethereum tools are included
 
-FROM immutability/go-ethereum:latest
+FROM immutability/go-ethereum:byzantium
 
 MAINTAINER Jeff Ploughman <j.j.ploughman@gmail.com>
 
